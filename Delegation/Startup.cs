@@ -20,7 +20,7 @@ namespace Delegation
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IBusinessTripRepository, FakeBusinessTripRepository>();
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddMvc();
             services.AddControllers(options => options.EnableEndpointRouting = false);
         }
 
@@ -47,7 +47,9 @@ namespace Delegation
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
-
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=BusinessTripController}/{action=List}/{id?}");
             });
         }
     }

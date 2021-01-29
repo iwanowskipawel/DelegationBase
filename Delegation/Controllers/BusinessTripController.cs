@@ -15,6 +15,6 @@ namespace Delegation.Controllers
         {
             _repository = repository;
         }
-        public ViewResult Index() => View(_repository.BusinessTrips);
+        public ViewResult List() => View(_repository.BusinessTrips);
     }
 }

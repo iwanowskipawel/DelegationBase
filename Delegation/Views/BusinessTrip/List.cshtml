@@ -1,0 +1,10 @@
+﻿@model IEnumerable<BusinessTrip>
+
+@foreach(var trip in Model)
+{
+    <div>
+        <h3>@trip.BusinessTripID</h3>
+        @trip.Destination
+        <h4>@trip.Project</h4>
+    </div>
+}
