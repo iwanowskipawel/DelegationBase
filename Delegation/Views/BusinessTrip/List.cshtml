@@ -5,8 +5,9 @@
 @foreach(var trip in Model)
 {
     <div>
-        <h3>Karta kilometrowa: @trip.KilometersCard</h3>
-        Cel wyjazdu: @trip.Destination
+        <h3>ID: @trip.BusinessTripID</h3>
+        <h4>Karta kilometrowa: @trip.KilometersCard</h4>
+        <h4>Cel wyjazdu: @trip.Destination</h4>
         <h4>Nr tematu @trip.Project</h4>
     </div>
 }
