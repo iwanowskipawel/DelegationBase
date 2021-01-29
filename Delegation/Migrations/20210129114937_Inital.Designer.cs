@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Delegation.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210129112755_Initial")]
-    partial class Initial
+    [Migration("20210129114937_Inital")]
+    partial class Inital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -182,9 +182,6 @@ namespace Delegation.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PersonID")
-                        .HasColumnType("int");
-
                     b.HasKey("EmployeeID");
 
                     b.ToTable("Employee");
@@ -241,9 +238,6 @@ namespace Delegation.Migrations
             modelBuilder.Entity("Delegation.Models.Driver", b =>
                 {
                     b.HasBaseType("Delegation.Models.Employee");
-
-                    b.Property<int>("DriverID")
-                        .HasColumnType("int");
 
                     b.HasDiscriminator().HasValue("Driver");
                 });

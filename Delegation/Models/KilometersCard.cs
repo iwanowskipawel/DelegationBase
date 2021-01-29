@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
@@ -10,6 +11,7 @@ namespace Delegation.Models
     public class KilometersCard
     {
         [Display(Name = "KilometerCardID")]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int KilometersCardID { get; set; }
 
         [Display(Name = "Nr karty")]

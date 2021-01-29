@@ -180,9 +180,6 @@ namespace Delegation.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PersonID")
-                        .HasColumnType("int");
-
                     b.HasKey("EmployeeID");
 
                     b.ToTable("Employee");
@@ -239,9 +236,6 @@ namespace Delegation.Migrations
             modelBuilder.Entity("Delegation.Models.Driver", b =>
                 {
                     b.HasBaseType("Delegation.Models.Employee");
-
-                    b.Property<int>("DriverID")
-                        .HasColumnType("int");
 
                     b.HasDiscriminator().HasValue("Driver");
                 });

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Delegation.Models
@@ -9,6 +10,7 @@ namespace Delegation.Models
     public class Destination
     {
         [Display(Name = "DestinationID")]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int DestinationID { get; set; }
 
         [Display(Name = "Nazwa")]

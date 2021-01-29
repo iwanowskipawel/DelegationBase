@@ -12,13 +12,11 @@ namespace Delegation.Models.FakeRepositories
         {
             new BusinessTrip
             {
-                BusinessTripID = 1,
                 DepartureDate = new DateTime(2020, 7, 13),
                 ArrivalDate = new DateTime(2020, 7, 15),
                 Driver = wieslaw,
                 Destination = new Destination()
                 {
-                    DestinationID = 1,
                     Name = "Gdańsk"
                 },
                 InitialMeter = 353677,
@@ -29,13 +27,11 @@ namespace Delegation.Models.FakeRepositories
             },
             new BusinessTrip
             {
-                BusinessTripID = 2,
                 DepartureDate = new DateTime(2020, 7, 16),
                 ArrivalDate = new DateTime(2020, 7, 17),
                 Driver = wieslaw,
                 Destination = new Destination()
                 {
-                    DestinationID = 2,
                     Name = "Kraków"
                 },
                 InitialMeter = 354456,
@@ -46,13 +42,11 @@ namespace Delegation.Models.FakeRepositories
             },
             new BusinessTrip
             {
-                BusinessTripID = 3,
                 DepartureDate = new DateTime(2020, 7, 22),
                 ArrivalDate = new DateTime(2020, 7, 25),
                 Driver = wieslaw,
                 Destination = new Destination()
                 {
-                    DestinationID = 2,
                     Name = "Leźnica"
                 },
                 InitialMeter = 355273,
@@ -65,37 +59,31 @@ namespace Delegation.Models.FakeRepositories
 
         Driver wieslaw = new Driver()
         {
-            EmployeeID = 1,
             FirstName = "Wiesław",
             LastName = "Eychler"
         };
         Employee pawelI = new Employee()
         {
-            EmployeeID = 2,
             FirstName = "Paweł",
             LastName = "Iwanowski"
         };
         Employee pawelP = new Employee()
         {
-            EmployeeID = 3,
             FirstName = "Paweł",
             LastName = "Pietruszewski"
         };
 
         Project project1 = new Project()
         {
-            ProjectID = 1,
             Symbol = "0-6541-24-1-00"
         };
         Project project2 = new Project()
         {
-            ProjectID = 2,
             Symbol = "0-6666-24-1-00"
         };
         
         Car car = new Car()
         {
-            CarID = 1,
             Model = "Ford Transit",
             RegistrationNumber = "WB 65788",
             //MainDriver = wieslaw,
@@ -104,13 +92,11 @@ namespace Delegation.Models.FakeRepositories
 
         KilometersCard card1 = new KilometersCard()
         {
-            KilometersCardID = 1,
             CardSymbol = "7/2020",
             WorkCardNumber = "456"
         };
         KilometersCard card2 = new KilometersCard()
         {
-            KilometersCardID = 2,
             CardSymbol = "8/2020",
             WorkCardNumber = "457"
         };

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Delegation.Models
@@ -8,9 +9,6 @@ namespace Delegation.Models
     [Serializable]
     public abstract class Person
     {
-        [Display(Name = "PersonID")]
-        public int PersonID { get; set; }
-
         [Display(Name = "Imię")]
         public string FirstName { get; set; }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Delegation.Models
 {
@@ -9,6 +10,7 @@ namespace Delegation.Models
     public class BusinessTrip
     {
         [Display(Name = "BusinessTripID")]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int BusinessTripID { get; set; }
 
         [Display(Name = "Wyjazd")]
