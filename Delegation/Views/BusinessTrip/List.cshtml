@@ -3,8 +3,8 @@
 @foreach(var trip in Model)
 {
     <div>
-        <h3>@trip.BusinessTripID</h3>
-        @trip.Destination
-        <h4>@trip.Project</h4>
+        <h3>Karta kilometrowa: @trip.KilometersCard</h3>
+        Cel wyjazdu: @trip.Destination
+        <h4>Nr tematu @trip.Project</h4>
     </div>
 }
