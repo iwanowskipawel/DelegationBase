@@ -21,36 +21,28 @@ namespace Delegation
         {
             services.AddTransient<IBusinessTripRepository, FakeBusinessTripRepository>();
             services.AddMvc();
-            services.AddControllers(options => options.EnableEndpointRouting = false);
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //    if (env.IsDevelopment())
-            //    {
-            //        app.UseDeveloperExceptionPage();
-            //    }
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
-            //    app.UseRouting();
+            app.UseRouting();
 
-            //    app.UseEndpoints(endpoints =>
-            //    {
-            //        endpoints.MapGet("/", async context =>
-            //        {
-            //            await context.Response.WriteAsync("Hello World!");
-            //        });
-            //    });
-            //}
-            app.UseDeveloperExceptionPage();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                     name: "default",
+                     pattern: "{controller=BusinessTrip}/{action=List}/{id?}");
+            });
+
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=BusinessTripController}/{action=List}/{id?}");
-            });
         }
     }
 }
