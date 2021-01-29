@@ -61,51 +61,53 @@ namespace Delegation.Models.DataAccess
                     WorkCardNumber = "457"
                 };
 
-                context.BusinessTrips.AddRange(new BusinessTrip
-                {
-                    DepartureDate = new DateTime(2020, 7, 13),
-                    ArrivalDate = new DateTime(2020, 7, 15),
-                    Driver = wieslaw,
-                    Destination = new Destination()
+                context.BusinessTrips.AddRange(
+                    new BusinessTrip
                     {
-                        Name = "Gdańsk"
+                        DepartureDate = new DateTime(2020, 7, 13),
+                        ArrivalDate = new DateTime(2020, 7, 15),
+                        Driver = wieslaw,
+                        Destination = new Destination()
+                        {
+                            Name = "Gdańsk"
+                        },
+                        InitialMeter = 353677,
+                        FinalMeter = 354456,
+                        Keeper = pawelI,
+                        Project = project1,
+                        KilometersCard = card1
                     },
-                    InitialMeter = 353677,
-                    FinalMeter = 354456,
-                    Keeper = pawelI,
-                    Project = project1,
-                    KilometersCard = card1
-                },
-                new BusinessTrip
-                {
-                    DepartureDate = new DateTime(2020, 7, 16),
-                    ArrivalDate = new DateTime(2020, 7, 17),
-                    Driver = wieslaw,
-                    Destination = new Destination()
+                    new BusinessTrip
                     {
-                        Name = "Kraków"
+                        DepartureDate = new DateTime(2020, 7, 16),
+                        ArrivalDate = new DateTime(2020, 7, 17),
+                        Driver = wieslaw,
+                        Destination = new Destination()
+                        {
+                            Name = "Kraków"
+                        },
+                        InitialMeter = 354456,
+                        FinalMeter = 355273,
+                        Keeper = pawelP,
+                        Project = project2,
+                        KilometersCard = card2
                     },
-                    InitialMeter = 354456,
-                    FinalMeter = 355273,
-                    Keeper = pawelP,
-                    Project = project2,
-                    KilometersCard = card2
-                },
-                new BusinessTrip
-                {
-                    DepartureDate = new DateTime(2020, 7, 22),
-                    ArrivalDate = new DateTime(2020, 7, 25),
-                    Driver = wieslaw,
-                    Destination = new Destination()
+                    new BusinessTrip
                     {
-                        Name = "Leźnica"
-                    },
-                    InitialMeter = 355273,
-                    FinalMeter = 355578,
-                    Keeper = pawelP,
-                    Project = project2,
-                    KilometersCard = card2
-                });
+                        DepartureDate = new DateTime(2020, 7, 22),
+                        ArrivalDate = new DateTime(2020, 7, 25),
+                        Driver = wieslaw,
+                        Destination = new Destination()
+                        {
+                            Name = "Leźnica"
+                        },
+                        InitialMeter = 355273,
+                        FinalMeter = 355578,
+                        Keeper = pawelP,
+                        Project = project2,
+                        KilometersCard = card2
+                    }
+                    );
             }
 
             context.SaveChanges();
