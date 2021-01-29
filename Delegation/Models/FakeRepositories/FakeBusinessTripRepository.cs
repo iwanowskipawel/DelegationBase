@@ -104,13 +104,13 @@ namespace Delegation.Models.FakeRepositories
 
         KilometersCard card1 = new KilometersCard()
         {
-            KilometerCardID = 1,
+            KilometersCardID = 1,
             CardSymbol = "7/2020",
             WorkCardNumber = "456"
         };
         KilometersCard card2 = new KilometersCard()
         {
-            KilometerCardID = 2,
+            KilometersCardID = 2,
             CardSymbol = "8/2020",
             WorkCardNumber = "457"
         };

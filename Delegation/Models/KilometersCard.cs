@@ -10,7 +10,7 @@ namespace Delegation.Models
     public class KilometersCard
     {
         [Display(Name = "KilometerCardID")]
-        public int KilometerCardID { get; set; }
+        public int KilometersCardID { get; set; }
 
         [Display(Name = "Nr karty")]
         public string CardSymbol { get; set; }
