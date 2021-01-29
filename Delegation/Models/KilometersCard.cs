@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace DelegationLibrary.Model
+namespace Delegation.Models
 {
     [Serializable]
     public class KilometersCard

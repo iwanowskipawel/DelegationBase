@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace DelegationLibrary.Model
+namespace Delegation.Models
 {
     [Serializable]
     public class Car

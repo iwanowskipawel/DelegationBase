@@ -1,11 +1,10 @@
-﻿using DelegationLibrary.Model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace DelegationLibrary.DataAccess
+namespace Delegation.Models.Repositories
 {
     public interface IBusinessTripRepository
     {
-        IQueryable<BusinessTrip> BusinessTrip { get; }
+        IQueryable<BusinessTrip> BusinessTrips { get; }
     }
 }
