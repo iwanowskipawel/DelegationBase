@@ -6,13 +6,13 @@ using System.Text;
 namespace DelegationLibrary.Model
 {
     [Serializable]
-    public class Employee : Person, IEmployee
+    public class Employee : Person
     {
         [Display(Name = "EmployeeID")]
         public int EmployeeID { get; set; }
 
         [Display(Name = "Wyjazdy")]
-        public List<IBusinessTrip> Trips { get; set; }
+        public List<BusinessTrip> Trips { get; set; }
 
     }
 }

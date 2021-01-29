@@ -7,7 +7,7 @@ using System.Text;
 namespace DelegationLibrary.Model
 {
     [Serializable]
-    public class Company : ICompany
+    public class Company
     {
         [Display(Name = "CompanyID")]
         public int CompanyID { get; set; }
@@ -16,7 +16,7 @@ namespace DelegationLibrary.Model
         public string Name { get; set; }
 
         [Display(Name = "Adres")]
-        public IAddress Address { get; set; }
+        public Address Address { get; set; }
 
         public override string ToString()
         {

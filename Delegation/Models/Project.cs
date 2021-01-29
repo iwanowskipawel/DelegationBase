@@ -6,7 +6,7 @@ using System.Text;
 namespace DelegationLibrary.Model
 {
     [Serializable]
-    public class Project : IProject
+    public class Project
     {
         [Display(Name = "ProjectID")]
         public int ProjectID { get; set; }
@@ -21,7 +21,7 @@ namespace DelegationLibrary.Model
         public string Title { get; set; }
 
         [Display(Name = "Wyjazdy")]
-        public List<IBusinessTrip> Trips { get; set; }
+        public List<BusinessTrip> Trips { get; set; }
 
         public override string ToString() => Symbol;
     }

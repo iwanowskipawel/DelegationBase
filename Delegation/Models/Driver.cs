@@ -6,12 +6,12 @@ using System.Text;
 namespace DelegationLibrary.Model
 {
     [Serializable]
-    public class Driver : Employee, IDriver
+    public class Driver : Employee
     {
         [Display(Name = "DriverID")]
         public int DriverID { get; set; }
 
         [Display(Name = "Użytkowane samochody")]
-        public List<ICar> UsedCars { get; set; }
+        public List<Car> UsedCars { get; set; }
     }
 }

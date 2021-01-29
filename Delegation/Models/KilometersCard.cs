@@ -7,7 +7,7 @@ using System.Text;
 namespace DelegationLibrary.Model
 {
     [Serializable]
-    public class KilometersCard : IKilometersCard
+    public class KilometersCard
     {
         [Display(Name = "KilometerCardID")]
         public int KilometerCardID { get; set; }
@@ -16,13 +16,13 @@ namespace DelegationLibrary.Model
         public string CardSymbol { get; set; }
 
         [Display(Name = "Samochód", AutoGenerateField = true)]
-        public ICar Car { get; set; }
+        public Car Car { get; set; }
 
         [Display(Name = "Karta pracy pojazdu")]
         public string WorkCardNumber { get; set; }
 
         [Display(Name = "Wyjazdy", AutoGenerateField = true)]
-        public List<IBusinessTrip> Trips { get; set; }
+        public List<BusinessTrip> Trips { get; set; }
 
         [Display(Name = "Przejechany dystans")]
         public int TotalDistance => Trips.Sum(x => x.Distance);

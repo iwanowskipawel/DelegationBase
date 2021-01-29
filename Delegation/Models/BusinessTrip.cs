@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace DelegationLibrary.Model
 {
     [Serializable]
-    public class BusinessTrip : IBusinessTrip
+    public class BusinessTrip
     {
         [Display(Name = "BusinessTripID")]
         public int BusinessTripID { get; set; }
@@ -18,16 +18,16 @@ namespace DelegationLibrary.Model
         public DateTime ArrivalDate { get; set; }
 
         [Display(Name = "Kierowca")]
-        public IDriver Driver { get; set; }
+        public Driver Driver { get; set; }
 
         [Display(Name = "Temat", AutoGenerateField = true)]
-        public IProject Project { get; set; }
+        public Project Project { get; set; }
 
         [Display(Name = "Dysponent", AutoGenerateField = true)]
-        public IEmployee Keeper { get; set; }
+        public Employee Keeper { get; set; }
 
         [Display(Name = "Miejsce docelowe", AutoGenerateField = true)]
-        public IDestination Destination { get; set; }
+        public Destination Destination { get; set; }
 
         [Display(Name = "Stan licznika początkowy")]
         public int InitialMeter { get; set; }
@@ -38,6 +38,6 @@ namespace DelegationLibrary.Model
         [Display(Name = "Liczba przejechanych km")]
         public int Distance => FinalMeter - InitialMeter;
 
-        public IKilometersCard KilometersCard { get; set; }
+        public KilometersCard KilometersCard { get; set; }
     }
 }
