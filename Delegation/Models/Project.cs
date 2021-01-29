@@ -15,13 +15,13 @@ namespace DelegationLibrary.Model
         public string Symbol { get; set; }
 
         [Display(Name = "Firma")]
-        public string Company { get; set; }
+        public Company Company { get; set; }
 
         [Display(Name = "Tytuł")]
         public string Title { get; set; }
 
-        [Display(Name = "Wyjazdy")]
-        public List<BusinessTrip> Trips { get; set; }
+        //[Display(Name = "Wyjazdy")]
+        //public List<BusinessTrip> Trips { get; set; }
 
         public override string ToString() => Symbol;
     }

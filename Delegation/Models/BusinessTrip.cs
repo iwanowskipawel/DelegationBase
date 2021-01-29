@@ -20,14 +20,17 @@ namespace DelegationLibrary.Model
         [Display(Name = "Kierowca")]
         public Driver Driver { get; set; }
 
-        [Display(Name = "Temat", AutoGenerateField = true)]
+        [Display(Name = "Temat")]
         public Project Project { get; set; }
 
-        [Display(Name = "Dysponent", AutoGenerateField = true)]
+        [Display(Name = "Dysponent")]
         public Employee Keeper { get; set; }
 
-        [Display(Name = "Miejsce docelowe", AutoGenerateField = true)]
+        [Display(Name = "Miejsce docelowe")]
         public Destination Destination { get; set; }
+
+        [Display(Name = "Samochód")]
+        public Car Car { get; set; }
 
         [Display(Name = "Stan licznika początkowy")]
         public int InitialMeter { get; set; }

@@ -11,8 +11,8 @@ namespace DelegationLibrary.Model
         [Display(Name = "EmployeeID")]
         public int EmployeeID { get; set; }
 
-        [Display(Name = "Wyjazdy")]
-        public List<BusinessTrip> Trips { get; set; }
+        //[Display(Name = "Wyjazdy")]
+        //public List<BusinessTrip> Trips { get; set; }
 
     }
 }

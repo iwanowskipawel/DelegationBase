@@ -17,8 +17,8 @@ namespace DelegationLibrary.Model
         [Display(Name = "Adres")]
         public Address Address { get; set; }
 
-        [Display(Name = "Wyjazdy")]
-        public List<BusinessTrip> Trips { get; set; }
+        //[Display(Name = "Wyjazdy")]
+        //public List<BusinessTrip> Trips { get; set; }
 
         public override string ToString()
         {

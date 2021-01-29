@@ -15,17 +15,17 @@ namespace DelegationLibrary.Model
         [Display(Name = "Nr karty")]
         public string CardSymbol { get; set; }
 
-        [Display(Name = "Samochód", AutoGenerateField = true)]
-        public Car Car { get; set; }
+        //[Display(Name = "Samochód", AutoGenerateField = true)]
+        //public Car Car { get; set; }
 
         [Display(Name = "Karta pracy pojazdu")]
         public string WorkCardNumber { get; set; }
 
-        [Display(Name = "Wyjazdy", AutoGenerateField = true)]
-        public List<BusinessTrip> Trips { get; set; }
+        //[Display(Name = "Wyjazdy", AutoGenerateField = true)]
+        //public List<BusinessTrip> Trips { get; set; }
 
-        [Display(Name = "Przejechany dystans")]
-        public int TotalDistance => Trips.Sum(x => x.Distance);
+        //[Display(Name = "Przejechany dystans")]
+        //public int TotalDistance => Trips.Sum(x => x.Distance);
 
         public override string ToString()
         {
