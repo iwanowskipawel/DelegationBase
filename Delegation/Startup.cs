@@ -53,6 +53,8 @@ namespace Delegation
 
             app.UseStatusCodePages();
             app.UseStaticFiles();
+
+            SeedData.EnsurePopulated(app);
         }
     }
 }
