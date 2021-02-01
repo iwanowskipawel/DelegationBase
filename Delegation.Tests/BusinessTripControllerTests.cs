@@ -38,9 +38,9 @@ namespace Delegation.Tests
 
             //Act
             BusinessTripViewModel firstPageResult =
-                controller.List(1).ViewData.Model as BusinessTripViewModel;
+                controller.List(null, 1).ViewData.Model as BusinessTripViewModel;
             BusinessTripViewModel secondPageResult =
-                controller.List(2).ViewData.Model as BusinessTripViewModel;
+                controller.List(null, 2).ViewData.Model as BusinessTripViewModel;
 
             //Assert
             BusinessTrip[] firstPageTripsArray = firstPageResult.BusinessTrips.ToArray();
@@ -71,7 +71,7 @@ namespace Delegation.Tests
             BusinessTripController controller = new BusinessTripController(mock.Object);
 
             //Act
-            BusinessTripViewModel result = controller.List(2).ViewData.Model as BusinessTripViewModel;
+            BusinessTripViewModel result = controller.List(null, 2).ViewData.Model as BusinessTripViewModel;
 
             //Assert
             PagingInfo pagingInfo = result.PagingInfo;

@@ -17,13 +17,12 @@ namespace Delegation.Controllers
         {
             _repository = repository;
         }
-        //public ViewResult List() 
-        //    => View(_repository.BusinessTrips);
 
-        public ViewResult List(int page = 1)
+        public ViewResult List(string project, int page = 1)
             => View(new BusinessTripViewModel
             {
                 BusinessTrips = _repository.BusinessTrips
+                .Where(t=>project == null || t.Project.ToString() == project)
                 .OrderBy(t => t.BusinessTripID)
                 .Skip((page - 1) * PageSize)
                 .Take(PageSize),
@@ -32,7 +31,8 @@ namespace Delegation.Controllers
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
                     TotalItems = _repository.BusinessTrips.Count()
-                }
+                },
+                CurrentProject = project
             });
     }
 }

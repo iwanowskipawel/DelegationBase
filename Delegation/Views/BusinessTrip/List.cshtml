@@ -25,24 +25,24 @@
         <th></th>
     </tr>
 
-    @foreach (var item in @Model.BusinessTrips)
+    @foreach (var t in @Model.BusinessTrips)
     {
-<tr>
-    <td class="text-rigth mr-2">@item.BusinessTripID</td>
-    <td class="text-center">@item.Project</td>
-    <td class="text-center">@item.Destination</td>
-    <td class="text-center">@item.DepartureDate.ToShortDateString()</td>
-    <td class="text-center">@item.ArrivalDate.ToShortDateString()</td>
-    <td class="text-center">@item.Driver</td>
-    <td class="text-center">@item.Keeper</td>
-    <td class="text-center">@item.Car</td>
-    <td class="text-center">@item.Distance</td>
-    <td class="text-center">
-        <a asp-action="Edit" class="btn btn-sm btn-warning"
-           asp-route-productId="@item.BusinessTripID">
-            Edit
-        </a>
-    </td>
-</tr>
+    <tr>
+        <td class="text-rigth mr-2">@t.BusinessTripID</td>
+        <td class="text-center">@t.Project</td>
+        <td class="text-center">@t.Destination</td>
+        <td class="text-center">@t.DepartureDate.ToShortDateString()</td>
+        <td class="text-center">@t.ArrivalDate.ToShortDateString()</td>
+        <td class="text-center">@t.Driver</td>
+        <td class="text-center">@t.Keeper</td>
+        <td class="text-center">@t.Car</td>
+        <td class="text-center">@t.Distance</td>
+        <td class="text-center">
+            <a asp-action="Edit" class="btn btn-sm btn-warning"
+                asp-route-productId="@t.BusinessTripID">
+                Edit
+            </a>
+        </td>
+    </tr>
     }
 </table>

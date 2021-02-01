@@ -9,5 +9,6 @@ namespace Delegation.Models.ViewModels
     {
         public IEnumerable<BusinessTrip> BusinessTrips { get; set; }
         public PagingInfo PagingInfo { get; set; }
+        public string CurrentProject { get; set; }
     }
 }
