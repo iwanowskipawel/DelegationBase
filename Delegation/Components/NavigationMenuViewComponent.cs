@@ -18,7 +18,7 @@ namespace Delegation.Components
 
         public IViewComponentResult Invoke() 
             => View(_repository.BusinessTrips
-                .Select(t=>t.Project)
+                .Select(t=>t.Project.ProjectID)
                 .Distinct()
                 .OrderBy(t=>t));
     }
