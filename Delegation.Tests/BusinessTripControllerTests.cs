@@ -81,5 +81,37 @@ namespace Delegation.Tests
             Assert.Equal(5, pagingInfo.TotalItems);
             Assert.Equal(3, pagingInfo.TotalPages);
         }
+
+        [Fact]
+        public void CanFilterTripsByProject()
+        {
+            //Arrange
+            Mock<IBusinessTripRepository> mock = new Mock<IBusinessTripRepository>();
+            mock.Setup(t => t.BusinessTrips).Returns(new BusinessTrip[]
+            {
+                new BusinessTrip{BusinessTripID=1, Project = new Project{Symbol="p1"}},
+                new BusinessTrip{BusinessTripID=2, Project = new Project{Symbol="p2"}},
+                new BusinessTrip{BusinessTripID=3, Project = new Project{Symbol="p2"}},
+                new BusinessTrip{BusinessTripID=4, Project = new Project{Symbol="p1"}},
+                new BusinessTrip{BusinessTripID=5, Project = new Project{Symbol="p1"}},
+                new BusinessTrip{BusinessTripID=6, Project = new Project{Symbol="p3"}}
+            }.AsQueryable());
+
+            BusinessTripController controller = new BusinessTripController(mock.Object);
+            controller.PageSize = 6;
+
+            //Act
+            BusinessTripViewModel result1 = controller.List("p1").ViewData.Model as BusinessTripViewModel;
+            BusinessTripViewModel result2 = controller.List("p2").ViewData.Model as BusinessTripViewModel;
+
+            BusinessTrip[] tripArraP1 = result1.BusinessTrips.ToArray();
+            BusinessTrip[] tripArraP2 = result2.BusinessTrips.ToArray();
+
+            //Assert
+            Assert.Equal(3, tripArraP1.Length);
+            Assert.Equal(2, tripArraP2.Length);
+            Assert.Equal(1, tripArraP1[0].BusinessTripID);
+
+        }
     }
 }
