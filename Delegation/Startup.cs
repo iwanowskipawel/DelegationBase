@@ -47,6 +47,11 @@ namespace Delegation
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "pagination",
+                    pattern: "BusinessTrips/Page{page}",
+                    defaults: new { controller = "BusinessTrip", action = "List" });
+
+                endpoints.MapControllerRoute(
                      name: "default",
                      pattern: "{controller=BusinessTrip}/{action=List}/{id?}");
             });
