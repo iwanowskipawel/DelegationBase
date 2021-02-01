@@ -75,7 +75,8 @@ namespace Delegation.Models.DataAccess
                         FinalMeter = 354456,
                         Keeper = pawelI,
                         Project = project1,
-                        KilometersCard = card1
+                        KilometersCard = card1,
+                        Car = car
                     },
                     new BusinessTrip
                     {
@@ -90,7 +91,8 @@ namespace Delegation.Models.DataAccess
                         FinalMeter = 355273,
                         Keeper = pawelP,
                         Project = project2,
-                        KilometersCard = card2
+                        KilometersCard = card2,
+                        Car = car
                     },
                     new BusinessTrip
                     {
@@ -105,7 +107,8 @@ namespace Delegation.Models.DataAccess
                         FinalMeter = 355578,
                         Keeper = pawelP,
                         Project = project2,
-                        KilometersCard = card2
+                        KilometersCard = card2,
+                        Car = car
                     }
                     );
             }
