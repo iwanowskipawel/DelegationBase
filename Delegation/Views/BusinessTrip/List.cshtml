@@ -1,8 +1,8 @@
-﻿@model IEnumerable<BusinessTrip>
+﻿@model Delegation.Models.ViewModels.BusinessTripViewModel
 
 
-<div>liczba delegacji: @Model.Count()</div>
-@foreach(var trip in Model)
+<div>liczba delegacji: @Model.BusinessTrips.Count()</div>
+@foreach(var trip in Model.BusinessTrips)
 {
     <div>
         <h3>ID: @trip.BusinessTripID</h3>
@@ -11,3 +11,4 @@
         <h4>Nr tematu @trip.Project</h4>
     </div>
 }
+<div page-model="@Model.PagingInfo"></div>

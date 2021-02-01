@@ -7,6 +7,7 @@ using System.Linq;
 using Delegation.Models.Repositories;
 using Delegation.Controllers;
 using Delegation.Models;
+using Delegation.Models.ViewModels;
 
 namespace Delegation.Tests
 {
@@ -36,14 +37,14 @@ namespace Delegation.Tests
             controller.PageSize = 10;
 
             //Act
-            IEnumerable<BusinessTrip> firstPageResult =
-                controller.List(1).ViewData.Model as IEnumerable<BusinessTrip>;
-            IEnumerable<BusinessTrip> secondPageResult =
-                controller.List(2).ViewData.Model as IEnumerable<BusinessTrip>;
+            BusinessTripViewModel firstPageResult =
+                controller.List(1).ViewData.Model as BusinessTripViewModel;
+            BusinessTripViewModel secondPageResult =
+                controller.List(2).ViewData.Model as BusinessTripViewModel;
 
             //Assert
-            BusinessTrip[] firstPageTripsArray = firstPageResult.ToArray();
-            BusinessTrip[] secondPageTripsArray = secondPageResult.ToArray();
+            BusinessTrip[] firstPageTripsArray = firstPageResult.BusinessTrips.ToArray();
+            BusinessTrip[] secondPageTripsArray = secondPageResult.BusinessTrips.ToArray();
 
             Assert.True(firstPageTripsArray.Length == 10);
             Assert.True(secondPageTripsArray.Length == 1);
@@ -51,6 +52,34 @@ namespace Delegation.Tests
             Assert.Equal("d1", firstPageTripsArray[0].Destination.Name);
             Assert.Equal("d10", firstPageTripsArray[9].Destination.Name);
             Assert.Equal("d11", secondPageTripsArray[0].Destination.Name);
+        }
+
+        [Fact]
+        public void CanSendPaginationViewModel()
+        {
+            //Arrange
+            Mock<IBusinessTripRepository> mock = new Mock<IBusinessTripRepository>();
+            mock.Setup(t => t.BusinessTrips).Returns(new BusinessTrip[]
+            {
+                new BusinessTrip{BusinessTripID = 1, Destination = new Destination{Name="d1"}},
+                new BusinessTrip{BusinessTripID = 2, Destination = new Destination{Name="d2"}},
+                new BusinessTrip{BusinessTripID = 3, Destination = new Destination{Name="d3"}},
+                new BusinessTrip{BusinessTripID = 4, Destination = new Destination{Name="d4"}},
+                new BusinessTrip{BusinessTripID = 5, Destination = new Destination{Name="d5"}}
+            }.AsQueryable());
+
+            BusinessTripController controller = new BusinessTripController(mock.Object);
+
+            //Act
+            BusinessTripViewModel result = controller.List(2).ViewData.Model as BusinessTripViewModel;
+
+            //Assert
+            PagingInfo pagingInfo = result.PagingInfo;
+
+            Assert.Equal(2, pagingInfo.CurrentPage);
+            Assert.Equal(2, pagingInfo.ItemsPerPage);
+            Assert.Equal(5, pagingInfo.TotalItems);
+            Assert.Equal(3, pagingInfo.TotalPages);
         }
     }
 }
