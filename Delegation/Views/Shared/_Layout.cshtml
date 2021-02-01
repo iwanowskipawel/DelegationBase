@@ -13,7 +13,7 @@
     </div>
     <div class="row m-1 p-1">
         <div id="filters" class="col-2">
-            Filtrowanie
+            @await Component.InvokeAsync("NavigationMenu") 
         </div>
         <div class="col-10">
             @RenderBody()
