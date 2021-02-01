@@ -2,6 +2,7 @@
 
 
 <div>liczba delegacji: @Model.BusinessTrips.Count()</div>
+
 @foreach(var trip in Model.BusinessTrips)
 {
     <div>
@@ -11,4 +12,5 @@
         <h4>Nr tematu @trip.Project</h4>
     </div>
 }
-<div page-model="@Model.PagingInfo"></div>
+
+<div page-model="@Model.PagingInfo" page-action="List"></div>
