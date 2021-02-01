@@ -10,11 +10,19 @@ namespace Delegation.Controllers
     public class BusinessTripController : Controller
     {
         private IBusinessTripRepository _repository;
+        public int PageSize = 10;
 
         public BusinessTripController(IBusinessTripRepository repository)
         {
             _repository = repository;
         }
-        public ViewResult List() => View(_repository.BusinessTrips);
+        public ViewResult List() 
+            => View(_repository.BusinessTrips);
+
+        public ViewResult List(int page = 1) 
+            => View(_repository.BusinessTrips
+            .OrderBy(t => t.BusinessTripID)
+            .Skip((page - 1) * PageSize)
+            .Take(PageSize));
     }
 }
