@@ -1,6 +1,7 @@
 ﻿using Delegation.Controllers;
 using Delegation.Models;
 using Delegation.Models.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace Delegation.Tests
             ManageBusinessTripController controller = new ManageBusinessTripController(mock.Object);
 
             //Act
-            BusinessTrip[] result = (controller.Index().ViewData.Model as IEnumerable<BusinessTrip>).ToArray();
+            BusinessTrip[] result = GetViewModel<IEnumerable<BusinessTrip>>(controller.Index())?.ToArray();
 
             //Assert
             Assert.Equal(1, result[0].BusinessTripID);
@@ -37,5 +38,8 @@ namespace Delegation.Tests
             Assert.Equal(4, result[3].BusinessTripID);
             Assert.Equal(4, result.Length);
         }
+
+        private T GetViewModel<T>(IActionResult result) where T : class
+            => (result as ViewResult)?.ViewData.Model as T;
     }
 }
