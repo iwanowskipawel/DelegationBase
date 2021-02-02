@@ -1,7 +1,11 @@
 ﻿@model IEnumerable<string>
 
-    <select id="dropdowntipo">
-        <option value="Exemplo1">Exemplo1</option>
-        <option value="Exemplo2">Exemplo2</option>
-        <option value="Exemplo3">Exemplo3</option>
-    </select>
+@{ 
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    foreach (string symbol in Model)
+    {
+        listItems.Add(new SelectListItem { Text = symbol, Value = symbol });
+    }
+}
+<label>Temat</label>
+@Html.DropDownList("dropdownsymbol", listItems, new { @class = "form-control" })
