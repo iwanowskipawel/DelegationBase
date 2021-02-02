@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Delegation.Models;
 using Delegation.Models.Repositories;
 using Delegation.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Delegation.Controllers
 {
@@ -23,10 +25,20 @@ namespace Delegation.Controllers
             {
                 BusinessTrip = _repository.BusinessTrips
                     .FirstOrDefault(t => t.BusinessTripID == businessTripID),
-                Drivers = _repository.BusinessTrips
+                Drivers = GetSelectList(_repository.BusinessTrips
                     .Select(d => d.Driver)
                     .Distinct()
-                    .OrderBy(d => d.EmployeeID)
+                    .OrderBy(d => d.EmployeeID))
             });
+
+        private IEnumerable<SelectListItem> GetSelectList(IEnumerable<Driver> drivers)
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            foreach(var d in drivers)
+            {
+                items.Add(new SelectListItem { Text = d.ToString(), Value = d.ToString() });
+            }
+            return items;
+        }
     }
 }
