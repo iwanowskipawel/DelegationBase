@@ -39,6 +39,28 @@ namespace Delegation.Tests
             Assert.Equal(4, result.Length);
         }
 
+        [Fact]
+        public void CannotEditNonExistTrip()
+        {
+            //Arrange
+            Mock<IBusinessTripRepository> mock = new Mock<IBusinessTripRepository>();
+            mock.Setup(t => t.BusinessTrips).Returns(new BusinessTrip[]
+            {
+                new BusinessTrip{BusinessTripID=1, Destination=new Destination{Name = "p1"}},
+                new BusinessTrip{BusinessTripID=2, Destination=new Destination{Name = "p2"}},
+                new BusinessTrip{BusinessTripID=3, Destination=new Destination{Name = "p3"}},
+                new BusinessTrip{BusinessTripID=4, Destination=new Destination{Name = "p4"}}
+            }.AsQueryable());
+
+            ManageBusinessTripController controller = new ManageBusinessTripController(mock.Object);
+
+            //Act
+            BusinessTrip result = GetViewModel<BusinessTrip>(controller.Edit(5));
+
+            //Assert
+            Assert.Null(result);
+        }
+
         private T GetViewModel<T>(IActionResult result) where T : class
             => (result as ViewResult)?.ViewData.Model as T;
     }

@@ -9,11 +9,15 @@ namespace Delegation.Controllers
 {
     public class ManageBusinessTripController : Controller
     {
-        IBusinessTripRepository _businessTripRepository;
+        IBusinessTripRepository _repository;
 
         public ManageBusinessTripController(IBusinessTripRepository repository)
-            => _businessTripRepository = repository;
+            => _repository = repository;
 
-        public ViewResult Index() => View(_businessTripRepository.BusinessTrips);
+        public ViewResult Index() => View(_repository.BusinessTrips);
+
+        public ViewResult Edit(int businessTripID)
+            => View(_repository.BusinessTrips
+                .FirstOrDefault(t => t.BusinessTripID == businessTripID));
     }
 }
