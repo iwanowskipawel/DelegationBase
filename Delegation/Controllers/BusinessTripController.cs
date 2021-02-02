@@ -18,11 +18,11 @@ namespace Delegation.Controllers
             _repository = repository;
         }
 
-        public ViewResult List(string project, int page = 1)
+        public ViewResult List(string symbol, int page = 1)
             => View(new BusinessTripViewModel
             {
                 BusinessTrips = _repository.BusinessTrips
-                .Where(t=>project == null || t.Project.ToString() == project)
+                .Where(t=>symbol == null || t.Project.Symbol == symbol)
                 .OrderBy(t => t.BusinessTripID)
                 .Skip((page - 1) * PageSize)
                 .Take(PageSize),
@@ -32,7 +32,7 @@ namespace Delegation.Controllers
                     ItemsPerPage = PageSize,
                     TotalItems = _repository.BusinessTrips.Count()
                 },
-                CurrentProject = project
+                CurrentProject = symbol
             });
     }
 }
