@@ -23,7 +23,6 @@
         <th class="text-center">Dysponent</th>
         <th class="text-center">Samochód</th>
         <th class="text-center">Dystans</th>
-        <th></th>
     </tr>
 
     @foreach (var t in @Model.BusinessTrips)
@@ -38,12 +37,6 @@
         <td class="text-center">@t.Keeper</td>
         <td class="text-center">@t.Car</td>
         <td class="text-center">@t.Distance</td>
-        <td class="text-center">
-            <a asp-action="Edit" class="btn btn-sm btn-warning"
-                asp-route-productId="@t.BusinessTripID">
-                Edit
-            </a>
-        </td>
     </tr>
     }
 </table>
