@@ -1,11 +1,10 @@
 ﻿@model IEnumerable<string>
 
-@{ 
-    List<SelectListItem> listItems = new List<SelectListItem>();
-    foreach (string symbol in Model)
-    {
-        listItems.Add(new SelectListItem { Text = symbol, Value = symbol });
-    }
-}
 <label>Temat</label>
-@Html.DropDownList("dropdownsymbol", listItems, new { @class = "form-control" })
+
+<select class="form-control">
+    @foreach(var symbol in Model)
+    {
+        <option>@symbol</option>
+    }
+</select>
