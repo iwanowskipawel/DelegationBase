@@ -11,7 +11,7 @@ namespace Delegation.Controllers
     {
         IBusinessTripRepository _businessTripRepository;
 
-        ManageBusinessTripController(IBusinessTripRepository repository)
+        public ManageBusinessTripController(IBusinessTripRepository repository)
             => _businessTripRepository = repository;
 
         public ViewResult Index() => View(_businessTripRepository.BusinessTrips);
