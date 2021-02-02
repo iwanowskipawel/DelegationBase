@@ -21,10 +21,12 @@
             @Html.DropDownListFor(x=>Model.SelectedDriver, 
            new SelectList(Model.Drivers, "Value", "Text"), htmlAttributes: new { id="SelectedDriver" })
         </div>
-        
     </div>
     <div class="form-group">
         <label asp-for="BusinessTrip.Project"></label>
-        <select asp-for="BusinessTrip.Project" class="form-control" />
+        <div>
+            @Html.DropDownListFor(x => Model.SelectedProject,
+           new SelectList(Model.Projects, "Value", "Text"), htmlAttributes: new { id = "SelectedProject" })
+        </div>
     </div>
 </form>

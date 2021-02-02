@@ -28,7 +28,11 @@ namespace Delegation.Controllers
                 Drivers = GetSelectList(_repository.BusinessTrips
                     .Select(d => d.Driver)
                     .Distinct()
-                    .OrderBy(d => d.EmployeeID))
+                    .OrderBy(d => d.EmployeeID)),
+                Projects = GetSelectList(_repository.BusinessTrips
+                    .Select(p=>p.Project)
+                    .Distinct()
+                    .OrderBy(p=>p.ProjectID))
             });
 
         private IEnumerable<SelectListItem> GetSelectList(IEnumerable<Driver> drivers)
@@ -37,6 +41,15 @@ namespace Delegation.Controllers
             foreach(var d in drivers)
             {
                 items.Add(new SelectListItem { Text = d.ToString(), Value = d.ToString() });
+            }
+            return items;
+        }
+        private IEnumerable<SelectListItem> GetSelectList(IEnumerable<Project> projects)
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            foreach (var p in projects)
+            {
+                items.Add(new SelectListItem { Text = p.ToString(), Value = p.ToString() });
             }
             return items;
         }
